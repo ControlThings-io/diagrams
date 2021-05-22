@@ -1,0 +1,20 @@
+@startuml
+digraph structs {
+    node [shape=record];
+    write [label="\> | <0>0xA1 | <1>r:8", peripheries=3, fillcolor=lightgrey, style=filled];
+
+    write:0 -> command:3;
+        command [label="<0>1|<1>0|<2>1|<3>0|<4>-|<5>-|<6>-|<7>1", fillcolor=whitesmoke, style=filled];
+        command:0 -> chip:0;
+        command:1 -> chip:1;
+        command:2 -> chip:2;
+        command:3 -> chip:3;
+            chip [label="Chip\nAddress"];
+        command:7 -> rw;
+            rw [label="Write = 0\nRead = 1"];
+
+    write:1 -> address;
+        address [label="Bytes to Read\n(1 byte per 'r')"];
+
+}
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+skinparam monochrome true
+skinparam shadowing false
+skinparam sequenceArrowThickness 2
+skinparam roundcorner 10
+skinparam sequenceReferenceAlign center
+
+participant "ModbusTCP Client" as TcpClient
+participant "ModbusTCP Server" as TcpServer
+participant "vs"
+participant "ModbusUDP Client" as UdpClient
+participant "ModbusUDP Server" as UdpServer
+
+group ModbusTCP Connection Establishment
+    TcpClient o-> TcpServer: TCP SYN (Synchronize)
+    TcpServer -> TcpClient: TCP SYN ACK (Acknowledge)
+    TcpClient -> TcpServer: TCP ACK
+end
+
+group ModbusTCP vs ModbusUDP Payload
+    TcpClient -> TcpServer : ModbusTCP Request
+    TcpClient <- TcpServer : TCP ACK
+    UdpClient -> UdpServer : ModbusUDP Request
+    TcpServer -> TcpClient : ModbusTCP Response
+    TcpServer <- TcpClient : TCP ACK
+    UdpClient <- UdpServer : ModubsUDP Response
+end
+
+group ModbusTCP Connection Teardown
+    TcpClient -> TcpServer: TCP FIN (Finalize)
+    TcpClient <- TcpServer: TCP FIN or FIN ACK
+    TcpClient <-- TcpServer: TCP ACK
+    TcpClient ->x TcpServer: TCP ACK
+End
+
+
+@enduml

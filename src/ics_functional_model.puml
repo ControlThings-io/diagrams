@@ -1,0 +1,29 @@
+@startdot
+digraph foo {
+    node [style=rounded, width=1, margin="0,0"];
+    Supervisory [shape=house, width=1];
+    Workstation [label="Engineering/\nTechnician\nWorkstation", style=dotted, color=red, fontcolor=red];
+    Controller [fillcolor=yellow, style="rounded,filled", shape=diamond, height=1];
+    Actuators [shape=box];
+    cl [label="Control\nLoop", shape=none, fontcolor=forestgreen, style=bold, fontsize=18];
+    Sensors [shape=box];
+    Process [shape=doublecircle, width=1];
+
+    {rank=same; Supervisory; Workstation};
+    Supervisory:s -> Controller:n [dir=both, weight=9];
+    Controller -> cl -> Process [weight=9, style=invis];
+    Controller -> Actuators:n [taillabel="output", labeldistance=3];
+    {rank=same; Actuators; cl; Sensors};
+    Actuators:s -> Process [headlabel="changes", labeldistance=3, labelangle=35];
+    Process -> Sensors:s [weight=5, taillabel="measures", labeldistance=3.2, labelangle=-35];
+    Sensors:n -> Controller [weight=5, headlabel="input", labeldistance=3, labelangle=25];
+
+    Supervisory -> Workstation [dir=back, style=dotted, minlen=5, color=red];
+    Controller -> Workstation [dir=back, style=dotted, color=red];
+    Actuators:nw -> Workstation [weight=0, dir=back, style=dotted, color=red];
+    cl -> Workstation [weight=2, style=invis];
+    Sensors:ne -> Workstation [weight=3, dir=back, style=dotted, color=red];
+
+}
+
+@enddot

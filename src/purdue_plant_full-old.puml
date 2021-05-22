@@ -1,0 +1,74 @@
+@startuml
+skinparam state {
+    BackgroundColor Lightgrey
+    BackgroundColor<<Warning>> Yellow
+    BorderColor Black
+}
+
+state "Physical Plant Perimeter" as Plant {
+    state "L4: Plant Business Network(s)" as L4 {
+    }
+
+    [*] --r--> L4
+    [*] -d-> iDMZ_Cloud
+    [*] -d-> iDMZ_Remote
+
+    iDMZ_Cloud -d-> Control
+    Control -u-> iDMZ_Cloud
+    iDMZ_Remote -d-> Control
+
+    L4 -d-> iDMZ_4_to_3
+    iDMZ_4_to_3 -d-> Control
+
+    Control -u-> iDMZ_3_to_4
+    iDMZ_3_to_4 -u-> L4
+
+    state "Plant Control Networks" as Control <<Warning>> {
+
+        state "L3: Plantwide Supervisory Network(s)" as L3 {
+        state switchL3 <<fork>>
+        switchL3 --> Production
+        switchL3 --> Testing
+        switchL3 --> Workstations
+        switchL3 --> CyberSecurity
+        switchL3 --> JumpHosts
+        }
+
+        state minor_enforcement <<fork>>
+        L3 --> minor_enforcement
+        minor_enforcement --> P1
+        minor_enforcement --> P2
+        minor_enforcement --> P3
+        minor_enforcement --> P4
+
+        state "Process 1" as P1 {
+            state "L2: Local Supervisory" as P1L2
+            --
+            state "L1: Local Controllers" as P1L1
+            --
+            state "L0: Local Field Devices" as P1L0
+        }
+        state "Process 2" as P2 {
+            state "L2: Local Supervisory" as P2L2
+            --
+            state "L1: Local Controllers" as P2L1
+            --
+            state "L0: Local Field Devices" as P2L0
+        }
+        state "Process 3" as P3 {
+            state "L2: Local Supervisory" as P3L2
+            --
+            state "L1: Local Controllers" as P3L1
+            --
+            state "L0: Local Field Devices" as P3L0
+        }
+        state "Process 4" as P4 {
+            state "L2: Local Supervisory" as P4L2
+            --
+            state "L1: Local Controllers" as P4L1
+            --
+            state "L0: Local Field Devices" as P4L0
+        }
+    }
+}
+@enduml

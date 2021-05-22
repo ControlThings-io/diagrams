@@ -1,0 +1,50 @@
+@startuml
+skinparam shadowing false
+skinparam monochrome true
+
+nwdiag {
+
+    group ControlNetwork {
+    color = "#FF7777";
+    PlantHMI;
+    Historian;
+    HMI;
+    PLC;
+    Sensor;
+    Actuator;
+    }
+
+    network L5_Enterprise {
+    AD;
+    Email;
+    }
+
+    network L4_Business {
+    fw_n;
+    workstation1;
+    wrkstn2;
+    }
+
+    network ICS_DMZ {
+    fw_n;
+    fw_s;
+    web01;
+    web02;
+    }
+
+    network L3_Plantwide_Supervisory {
+    fw_s;
+    PlantHMI;
+    Historian;
+    }
+
+    network L012_Process1 {
+    HMI;
+    PLC;
+    Sensor;
+    Actuator;
+    }
+
+}
+
+@enduml

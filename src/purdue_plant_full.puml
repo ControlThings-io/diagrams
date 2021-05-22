@@ -1,0 +1,69 @@
+@startuml
+digraph G {
+    imgnode[image="logo.png"];
+}
+@stopuml
+    node [shape=record, fillcolor=lightgrey, style="filled,rounded"]
+
+    subgraph cluster5 {
+        label = "L5: Remote Enterprise Networks"
+        labeljust = left
+        style = "filled,rounded"
+        color = green
+        L5a1
+        L5a2
+        L5a3
+    }
+
+    subgraph cluster4 {
+        label = "L4: Plant Business Networks"
+        labeljust = left
+        style = "filled,rounded"
+        color = steelblue1
+        L4a1
+        L4a2
+        L4a3
+    }
+
+    subgraph cluster3 {
+        label = "L3: Plantwide Supervisory Networks"
+        labeljust = left
+        style = "filled,rounded"
+        color = yellow
+        L3a1
+        L3a2
+        L3a3
+    }
+
+    subgraph cluster2 {
+        label = "L2: Process Specific Supervisory"
+        labeljust = left
+        style = "filled,rounded"
+        color = orange
+        L2a1
+        L2a2
+        L2a3
+    }
+
+    subgraph cluster1 {
+        label = "L1: Process Specific Controllers"
+        labeljust = left
+        style = "filled,rounded"
+        color = orangered
+        L1a1
+        L1a2
+        L1a3
+    }
+
+    subgraph cluster0 {
+        label = "L0: Process Specific Field Devices"
+        labeljust = left
+        style = "filled,rounded"
+        color = red
+        L0a1
+        L0a2
+        L0a3
+    }
+
+}
+@enduml

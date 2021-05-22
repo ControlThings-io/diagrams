@@ -1,0 +1,6 @@
+@startuml
+digraph structs {
+    node [shape=record];
+    cmdxpl [label="{Command Example | 0xA0 = Write Block 0 \n 0xA1 = Read Block 0 \n 0xA2 = Write Block 1 \n 0xA3 = Read Block 1 \n 0xA4 = Write Block 2 \n 0xA5 = Read Block 2 \n 0xA6 = Write Block 3 \n 0xA7 = Read Block 3 \n...}"];
+}
+@enduml
