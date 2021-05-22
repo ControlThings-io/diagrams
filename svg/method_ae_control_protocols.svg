@@ -12,8 +12,8 @@
 <g id="clust1" class="cluster">
 <title>cluster0</title>
 <path fill="deepskyblue" stroke="deepskyblue" d="M20,-211C20,-211 428,-211 428,-211 434,-211 440,-217 440,-223 440,-223 440,-363 440,-363 440,-369 434,-375 428,-375 428,-375 20,-375 20,-375 14,-375 8,-369 8,-363 8,-363 8,-223 8,-223 8,-217 14,-211 20,-211"/>
-<text text-anchor="middle" x="123" y="-359.8" font-family="Times,serif" font-size="14.00">Same as</text>
-<text text-anchor="middle" x="123" y="-344.8" font-family="Times,serif" font-size="14.00">Network Capture Assessment</text>
+<text text-anchor="middle" x="111" y="-359.8" font-family="Times,serif" font-size="14.00">Same as A&amp;E</text>
+<text text-anchor="middle" x="111" y="-344.8" font-family="Times,serif" font-size="14.00">Control Network Captures</text>
 </g>
 <!-- capture -->
 <g id="node1" class="node">

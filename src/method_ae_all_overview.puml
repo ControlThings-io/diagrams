@@ -2,14 +2,18 @@
 @startuml
 digraph G {
     rankdir=LR
-    node [shape=record, fillcolor=lightgrey, style="filled,rounded"]
+    node [
+        shape=record, 
+        fillcolor=lightgrey, 
+        style="filled, rounded",
+        ]
     1 [label = "1 - A&E Control System Architectures"]
     1 -> 2,3,4,5,8,9
     
     subgraph cluster0 {
         label = "Production Assessments"
         fontsize = 20
-        style = "filled,rounded"
+        style = "filled, rounded"
         color = LightGreen
 
         2 [label = "2 - A&E Control Network Captures"]
@@ -19,7 +23,7 @@ digraph G {
     subgraph cluster1 {
         label = "Lab Assessments (not safe for production systems)"
         fontsize = 20
-        style = "filled,rounded"
+        style = "filled, rounded"
         color = Yellow
 
         4 [label = "4 - A&E Controller Logic"]
