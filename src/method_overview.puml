@@ -8,17 +8,17 @@ digraph G {
     
     subgraph cluster0 {
         label = "Production Assessments"
-        labeljust = left
+        fontsize = 20
         style = "filled,rounded"
         color = LightGreen
 
-        2 [label = "2 - A&E Production Network Captures"]
+        2 [label = "2 - A&E Control Network Captures"]
         3 [label = "3 - A&E Production Control Networks"]
     }
 
     subgraph cluster1 {
-        label = "Lab Assessments"
-        labeljust = left
+        label = "Lab Assessments (not safe for production systems)"
+        fontsize = 20
         style = "filled,rounded"
         color = Yellow
 
