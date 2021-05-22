@@ -2,29 +2,25 @@
 digraph G {
     node [
         shape = record, 
-        fillcolor = lightgrey, 
+        fillcolor = Orange, 
         style = "filled, rounded"]
-    capture [label = "Traffic Capture"]
-    capture -> analyze
 
+    1 [label = "Traffic Capture"]
     subgraph cluster0 {
         label = "Same as A&E\nControl Network Captures"
         labeljust = left
         style = "filled, rounded"
         color = deepskyblue
-        analyze [label="Endpoint and Flow Analysis"]
-        analyze:0 -> known:n
-        analyze:1 -> unknown:n
-        known [label = "Known Protocol Analysis"]
-        unknown [label = "Unknown Protocol Decode"]
-    }
 
-    known:s -> enum:0
-    unknown:s -> enum:1
-    enum [label = "Protocol Enumeration"]
-    enum -> fuzz
-    fuzz [label = "Protocol Fuzzing"]
-    fuzz -> exploit
-    exploit [label = "Protocol Exploitation"]
+        2 [label="Endpoint and Flow Analysis"]
+        3 [label = "Known Protocol Analysis"]
+        4 [label = "Unknown Protocol Decode"]
+    }
+    5 [label = "Protocol Enumeration"]
+    6 [label = "Protocol Fuzzing"]
+    7 [label = "Protocol Exploitation"]
+
+    1 -> 2 -> 3:n, 4:n
+    3:s,4:s -> 5 -> 6 -> 7
 }
 @enduml

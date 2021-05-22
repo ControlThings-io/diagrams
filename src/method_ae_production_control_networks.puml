@@ -1,0 +1,27 @@
+@startuml
+digraph G {
+    node [
+        shape = record, 
+        fillcolor = Orange, 
+        style = "filled, rounded",
+        ]
+        
+    1 [label = "DNS Interrogation"]
+    2 [label = "Port Scanning"]
+    3 [label = "Technology Fingerprinting"]
+    4 [label = "Protocol Enumeration"]
+    5 [label = "Vulnerability Scanning"]
+    6 [label = "Vulnerability Validation"]
+    7 [label = "Vulnerability Exploitation"]
+    8 [label = "Post Exploitation / Cleanup"]
+
+    1 -> 2:n
+    2 -> 3:n
+    3 -> 4:n
+    4:s -> 8
+    1 -> 5:n
+    5 -> 6:n
+    6 -> 7:n
+    7:s -> 8
+}
+@enduml

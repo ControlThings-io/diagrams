@@ -1,0 +1,18 @@
+@startuml 
+digraph G {
+    node [
+        shape = record, 
+        fillcolor = Orange, 
+        style = "filled, rounded",
+        ]
+
+    1 [label = "Traffic Capture"]
+    2 [label = "Endpoint and Flow Analysis"]
+    3 [label = "Known Protocol Analysis"]
+    4 [label = "Unknown Protocol Decode"]
+    5 [label = "Gap Analysis with SAR"]
+
+    1 -> 2 -> 3:n, 4:n
+    3:s, 4:s -> 5
+}
+@enduml

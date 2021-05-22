@@ -1,0 +1,21 @@
+@startuml
+digraph G {
+    node [
+        shape = record, 
+        fillcolor = Orange, 
+        style = "filled, rounded",
+        ]
+        
+    1 [label = "RF Signal Capture"]
+    2 [label = "Spread Spectrum Analysis"]
+    3 [label = "Demodulation"]
+    4 [label = "Bitstream to Packet"]
+    5 [label = "Packet Creation"]
+    6 [label = "Modulation"]
+    7 [label = "RF Signal Transmission"]
+
+    1 -> 2:n 
+    2 -> 3 -> 4 -> 5 -> 6 -> 7
+    1 -> 7 [label = "Signal Replay"]
+}
+@enduml

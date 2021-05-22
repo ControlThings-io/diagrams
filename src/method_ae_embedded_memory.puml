@@ -1,0 +1,27 @@
+@startuml
+digraph G {
+    node [
+        shape = record, 
+        fillcolor = Orange, 
+        style = "filled, rounded",
+        ]
+        
+    1 [label = "Device Disassembly"]
+    2 [label = "Circuit Analysis"]
+    3 [label = "Datasheet Analysis"]
+    4 [label = "Dump Data at Rest"]
+    5 [label = "Capture Data in Motion"]
+    6 [label = "String Analysis"]
+    7 [label = "Entropy Analysis"]
+    8 [label = "Key Search"]
+    9 [label = "Decoding Retrieved Data"]
+    10 [label = "Exploitation"]
+
+    1 -> 2 -> 3 -> 4:n, 5:n
+    4,5 -> 6,7,8
+    6:s -> 9:w
+    7:s -> 9:n
+    8:s -> 9:e
+    9 -> 10
+}
+@enduml

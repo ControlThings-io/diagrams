@@ -4,12 +4,11 @@ digraph G {
     rankdir=LR
     node [
         shape=record, 
-        fillcolor=lightgrey, 
+        fillcolor=Orange, 
         style="filled, rounded",
         ]
+
     1 [label = "1 - A&E Control System Architectures"]
-    1 -> 2,3,4,5,8,9
-    
     subgraph cluster0 {
         label = "Production Assessments"
         fontsize = 20
@@ -19,7 +18,6 @@ digraph G {
         2 [label = "2 - A&E Control Network Captures"]
         3 [label = "3 - A&E Production Control Networks"]
     }
-
     subgraph cluster1 {
         label = "Lab Assessments (not safe for production systems)"
         fontsize = 20
@@ -32,8 +30,12 @@ digraph G {
         7 [label = "7 - A&E Proprietary RF Protocols"]
         8 [label = "8 - A&E Embedded Memory"]
         9 [label = "9 - A&E Embedded Firmware"]
-
-        5 -> 6,7
     }
+
+    1:ne -> 2:w, 3:w
+    1:e -> 4:w, 5:w
+    1:se -> 8:w, 9:w
+    5:ne -> 6:w
+    5:se -> 7:w
 }
 @enduml

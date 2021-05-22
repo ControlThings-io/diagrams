@@ -1,0 +1,21 @@
+@startuml
+digraph G {
+    node [
+        shape = record, 
+        fillcolor = Orange, 
+        style = "filled, rounded",
+        ]
+        
+    1 [label = "Functional Analysis"]
+    2 [label = "Communication Capture"]
+    3 [label = "Capture Analysis"]
+    4 [label = "Testing Harness Creation"]
+    5 [label = "Endpoint Fuzzing"]
+    6 [label = "Exploitation"]
+
+    1 -> 2 
+    2:sw -> 3:w 
+    3:e -> 2:se 
+    3 -> 4 -> 5 -> 6
+}
+@enduml

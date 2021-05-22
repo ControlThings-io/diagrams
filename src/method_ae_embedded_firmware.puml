@@ -1,0 +1,18 @@
+@startuml
+digraph G {
+    node [
+        shape = record, 
+        fillcolor = Orange, 
+        style = "filled, rounded",
+        ]
+        
+    1 [label = "Obtain Firmware"]
+    2 [label = "Firmware Disassembly"]
+    3 [label = "Code Object Analysis"]
+    4 [label = "Code Functional Analysis"]
+    5 [label = "Firmware Exploitation"]
+
+    1 -> 2 -> 3 -> 4 -> 5
+    4 -> 3
+}
+@enduml
