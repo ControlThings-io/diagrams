@@ -6,7 +6,6 @@ digraph G {
     1 [label = "1 - A&E Control System Architectures"]
     1 -> 2,3,4,5,8,9
     
-
     subgraph cluster0 {
         label = "Production Assessments"
         labeljust = left
@@ -15,7 +14,6 @@ digraph G {
 
         2 [label = "2 - A&E Production Network Captures"]
         3 [label = "3 - A&E Production Control Networks"]
-
     }
 
     subgraph cluster1 {
@@ -33,6 +31,5 @@ digraph G {
 
         5 -> 6,7
     }
-
 }
 @enduml
