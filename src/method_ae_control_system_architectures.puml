@@ -7,10 +7,10 @@ digraph G {
         ]
 
     1 [label = "Document Review"]
-    2 [label = "Open Source Intelgence"]
+    2 [label = "Open Source Intelligence"]
     3 [label = "Interviews"]
     4 [label = "Document Review"]
-    5 [label = "Open Source Intelgence"]
+    5 [label = "Open Source Intelligence"]
     6 [label = "Followup Questions"]
 
     1 -> 2 -> 3 -> 4:n, 5:n
