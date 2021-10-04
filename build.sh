@@ -18,6 +18,6 @@ echo >> README.md
 for f in img/*.png; do 
     echo "$f" >> README.md; 
     echo >> README.md
-    echo "![$f](https://controlthings-io.github.io/diagrams/$f]" >> README.md; 
+    echo "![$f](https://controlthings-io.github.io/diagrams/$f)" >> README.md; 
     echo >> README.md
     done;
