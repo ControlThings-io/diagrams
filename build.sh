@@ -16,6 +16,8 @@ echo "Rebuilding README.md and linking to https://controlthings-io.github.io/dia
 echo "Numerous diagrams used in ControlThings courses and tools, all created with PlantUML." > README.md
 echo >> README.md
 for f in img/*.png; do 
-    echo $f >> README.md; 
+    echo "$f" >> README.md; 
+    echo >> README.md
     echo "![$f](https://controlthings-io.github.io/diagrams/$f]" >> README.md; 
+    echo >> README.md
     done;
