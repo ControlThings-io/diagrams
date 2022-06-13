@@ -1,0 +1,58 @@
+@startuml
+digraph structs {
+    node [shape=record];
+    request [label="<0> 01 | <1> 03 | <2> 00000003 | <3> 05CB" fillcolor=lightgrey, style=filled];
+
+    request:0 -> unit_id;
+        unit_id [label="{Confirm Unit ID (1-Byte)}"];
+
+    request:1 -> func;
+        func [label="{  Function (1-Byte) | 
+                        00: Invalid \n 
+                        01-79: Confirm Function \n 
+                        80-FF: Exception Code | 
+                        **NOTE** \n
+                        Exception Codes are \n 
+                        Function + 0x80}"];
+
+    request:2 -> func_data;
+        func_data [label="{ Function Data (variable) | 
+                            252-Byte Maximum \n 
+                            Big endian encoded \n }"];
+            func_data -> reads;
+                reads [label="{ Read Response | 
+                                Address Count (1-Byte) \n
+                                + \n
+                                Data Byte Count (2-Byte) \n
+                                + \n
+                                Data (variable) }"];
+            func_data -> s_writes;
+                s_writes [label="{Single Write Reponse | 
+                                Confirm Address (2-Bytes) \n
+                                + \n
+                                Confirm Data (2-Bytes) }"];
+            func_data -> m_writes;
+                m_writes [label="{Muptiple Writes Reponse | 
+                                Confirm Address (2-Bytes) \n
+                                + \n
+                                Confirm Address Count (2-Bytes)}"];
+            func_data -> ex_code;
+                ex_code [label="{Exception Codes (1-Byte) | 
+                                01: Illegal Function \n 
+                                02: Illegal Data Address \n 
+                                03: Illegal Data Value \n 
+                                04: Slave Device Failure \n 
+                                05: Acknowledge \n 
+                                06: Slave Device Busy \n 
+                                07: Memory Parity Error \n 
+                                0A: Gateway Path Unavailable \n
+                                0B: Gateway Target Device Failed to Respond \n
+                                *: Vendor Specific}"];
+            func_data -> other;
+                other [label="{ Other | See Specification}"];
+
+    request:3 -> crc:1;
+        crc [label="{CRC-16 (2-Bytes)}"];
+
+}
+@enduml

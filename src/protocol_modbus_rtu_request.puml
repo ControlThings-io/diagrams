@@ -1,0 +1,72 @@
+@startuml
+digraph structs {
+    node [shape=record];
+    request [label="<0> 01 | <1> 03 | <2> 00000003 | <3> 05CB" fillcolor=lightgrey, style=filled];
+
+    request:0 -> unit_id;
+        unit_id [label="{Unit ID (1-Byte) | 
+                        0x00: Broadcast \n 
+                        0x01-F7: Modbus Devices (247) \n 
+                        0xF8-FE: Reserved \n 
+                        0xFF: Modbus Gateway }"];
+
+    request:1 -> func;
+        func [label="{Function (1-Byte) | 
+                        0x00: Invalid \n 
+                        0x01-79: Request Functions \n 
+                        0x80-FF: Invalid for Request}"];
+            func -> bit;
+                bit [label="{1-bit Data | 
+                            0x01: Read Coils \n 
+                            0x02: Read Discrete Inputs \n 
+                            0x05: Write Single Coil \n 
+                            0x0A: Write Multiple Coils}"];
+            func -> word;
+                word [label="{16-bit Data | 
+                                0x03: Read Holding Registers \n 
+                                0x04: Read Input Registers \n 
+                                0x06: Write Single Register \n 
+                                0x10: Write Multiple Registers | 
+                                **UNCOMMON** \n 
+                                0x16: Mask Write Register \n 
+                                0x17: Read/Write Multiple Registers \n 
+                                0x18: Read FIFO Queue}"];
+            func -> file;
+                file [label="{File Records | 
+                                **UNCOMMON** \n 
+                                0x20: Read File Record \n 
+                                0x21: Write File Record \n 
+                                0x24: Mask Write File Record}"];
+            func -> diag;
+                diag [label="{Diagnostics | 
+                                0x07: Read Exception Status \n 
+                                0x08: Diagnostic \n 
+                                0x0B: Get Com Event Counter \n 
+                                0x0C: Get Com Event Log \n 
+                                0x11: Read Server ID \n  
+                                0x2B0E: Read Device ID \n }"];
+            func -> other;
+                other [label="{Other | 
+                                0x2B: Encapsulated Interface \n 
+                                0x2B0D: CANopen}"];
+
+    request:2 -> func_data;
+        func_data [label="{Function Data (variable) | 
+                            252-Byte Maximum \n 
+                            Big endian encoded \n }"];
+            func_data -> reads
+                reads [label="{Reads | 
+                                Start Address (2-Bytes) \n
+                                + \n 
+                                Address Count }"];
+            func_data -> writes
+                writes [label="{Writes | 
+                                Start Address (2-Bytes) \n
+                                + \n 
+                                Data (variable) }"];
+    
+    request:3 -> crc:1;
+        crc [label="{CRC (2-Bytes) | CRC-16 }"];
+
+}
+@enduml
