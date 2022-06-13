@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # You must have plantuml installed to run this.
-# On Debian/Ubuntu derivatives, you can install it with `sudo apt install plantuml`
+# On Debian/Ubuntu derivatives, you can install it with `sudo apt install plantuml graphviz`
+# On Fedora/RedHat derivatives, you can install it with `sudo dnf install plantuml graphviz`
 
 DELETED=`ls img/ | wc -l`
 rm img/*

@@ -44,10 +44,6 @@ img/method_ae_proprietary_serial_protocols.png
 
 ![img/method_ae_proprietary_serial_protocols.png](https://controlthings-io.github.io/diagrams/img/method_ae_proprietary_serial_protocols.png)
 
-img/plant_network.png
-
-![img/plant_network.png](https://controlthings-io.github.io/diagrams/img/plant_network.png)
-
 img/protocol_i2c_fields_bpread.png
 
 ![img/protocol_i2c_fields_bpread.png](https://controlthings-io.github.io/diagrams/img/protocol_i2c_fields_bpread.png)
@@ -59,6 +55,14 @@ img/protocol_i2c_fields_bpwrite.png
 img/protocol_i2c_fields_cmds.png
 
 ![img/protocol_i2c_fields_cmds.png](https://controlthings-io.github.io/diagrams/img/protocol_i2c_fields_cmds.png)
+
+img/protocol_modbus_rtu_request.png
+
+![img/protocol_modbus_rtu_request.png](https://controlthings-io.github.io/diagrams/img/protocol_modbus_rtu_request.png)
+
+img/protocol_modbus_rtu_response.png
+
+![img/protocol_modbus_rtu_response.png](https://controlthings-io.github.io/diagrams/img/protocol_modbus_rtu_response.png)
 
 img/protocol_tcp_udp.png
 
