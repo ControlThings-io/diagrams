@@ -1,0 +1,22 @@
+@startuml
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam sequenceArrowThickness 2
+skinparam roundcorner 10
+skinparam sequenceReferenceAlign center
+
+participant "Client" as client
+participant "Server" as server
+
+group Valid Modbus Request
+    client o-> server: Request Function \n0x03
+    client <-o server: Response Function \n0x03
+end
+
+group Invalid Modbus Request
+    client o-> server: Request Function \n0x09
+    client <--o server: Response Exception \n0x89 \n(Exception = 0x09 + 0x80)
+End
+
+@enduml
