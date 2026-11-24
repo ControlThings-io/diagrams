@@ -527,12 +527,7 @@
       "version": 160,
       "versionNonce": 956838010,
       "isDeleted": false,
-      "boundElements": [
-        {
-          "id": "4bePI17l2Dgja2Ep0VjxO",
-          "type": "arrow"
-        }
-      ],
+      "boundElements": [],
       "updated": 1794701264365,
       "link": null,
       "locked": false
@@ -8624,10 +8619,10 @@
     {
       "id": "FTfGXrNBvBkHOfjj0-ONm",
       "type": "text",
-      "x": 21.7301025390625,
-      "y": 57.5,
-      "width": 276.539794921875,
-      "height": 25,
+      "x": 33.040130615234375,
+      "y": 56.5,
+      "width": 253.91973876953125,
+      "height": 27,
       "angle": 0,
       "strokeColor": "#000000",
       "backgroundColor": "#ffffff",
@@ -8641,22 +8636,22 @@
       "index": "b4U",
       "roundness": null,
       "seed": 872628646,
-      "version": 77,
-      "versionNonce": 627134394,
+      "version": 79,
+      "versionNonce": 508663550,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1794706326391,
+      "updated": 1795490856472,
       "link": null,
       "locked": false,
       "text": "PL4: Non-OT Business Sites",
       "fontSize": 20,
-      "fontFamily": 5,
+      "fontFamily": 6,
       "textAlign": "center",
       "verticalAlign": "middle",
       "containerId": "1ERj07pee5at8CooL0yiR",
       "originalText": "PL4: Non-OT Business Sites",
       "autoResize": true,
-      "lineHeight": 1.25
+      "lineHeight": 1.35
     },
     {
       "id": "65EydptEtFD49Hg4UdqSm",
